@@ -102,7 +102,17 @@ struct ToolDetailFeature {
             } else if let boolValue = Bool(value) {
                 arguments[key] = .bool(boolValue)
             } else {
-                arguments[key] = .string(value)
+                let jsonValue: MCP.Value? = if let data = value.data(using: .utf8) {
+                    try? JSONDecoder().decode(MCP.Value.self, from: data)
+                } else {
+                    nil
+                }
+                
+                if let jsonValue {
+                    arguments[key] = jsonValue
+                } else {
+                    arguments[key] = .string(value)
+                }
             }
         }
 
