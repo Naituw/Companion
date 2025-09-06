@@ -679,10 +679,10 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		F82EF4F02DFDAC70006F10F1 /* XCRemoteSwiftPackageReference "JSONSchema" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/loopwork-ai/JSONSchema.git";
+			repositoryURL = "https://github.com/Naituw/JSONSchema.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
+				branch = wecode;
+				kind = branch;
 			};
 		};
 		F82EF4F32DFDB069006F10F1 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
