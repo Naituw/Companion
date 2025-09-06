@@ -8,7 +8,13 @@ struct ContentDisplayHelpers {
     @ViewBuilder
     static func textContentView(_ text: String) -> some View {
         if !text.isEmpty {
-            Text(text)
+            let displayText: String? = if let data = text.data(using: .utf8) {
+                try? JSONDecoder().decode(String.self, from: data)
+            } else {
+                nil
+            }
+            
+            Text(displayText ?? text)
                 .font(.system(.body, design: .monospaced))
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
